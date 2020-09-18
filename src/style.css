@@ -15,7 +15,7 @@ body {
   background-image: linear-gradient(to top, #a3bded 15%, #6991c7 100%);
   max-width: 800px;
   overflow: hidden;
-  margin: 40px auto;
+  margin: 40px auto 0 auto;
   border-radius: 8px;
   box-shadow: 0 30px 80px 10px rgba(0, 0, 0, 0.2);
 }
@@ -172,4 +172,13 @@ h4 {
 .five-day-low {
   color: #555555;
   font-weight: 300;
+}
+
+.coded-by {
+  font-size: 14px;
+  color: #555555;
+  font-weight: 300;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
 }
