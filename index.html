@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendors/css/ionicons.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-box">
+        <form class="weather-search" id="city-form">
+          <div class="row">
+            <div class="col-8">
+              <input
+                type="search"
+                placeholder="Type a city..."
+                autofocus
+                autocomplete="off"
+                class="form-control shadow-sm"
+                id="city-input"
+              />
+            </div>
+            <div class="col-2">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-warning shadow-sm"
+              />
+            </div>
+            <div class="col-2">
+              <button type="button" class="form-control btn btn-dark" id="current-button">
+                Current
+              </button>
+            </div>
+          </div>
+        </form>
+        <h1></h1>
+        <ul class="today-info">
+          <li>
+            <span class="today-span">Today&ThickSpace;</span>
+            <span class="day-time" id="day-time"></span>
+          </li>
+          <li id="description"></li>
+        </ul>
+        <div class="row">
+          <div class="col-7">
+            <div class="clearfix">
+              <div class="float-left">
+                <!-- <i class="ion-ios-sunny-outline today-icon"></i> -->
+              </div>
+              <div class="float-left">
+                <p class="today-temp">
+                  <span class="today-temp-span-current"
+                    ><span id="today-temp-span-current"></span
+                    ></span
+                  >
+                  <!-- <span class="today-temp-span-low"
+                    ><span id="today-temp-span-low"></span>
+                  </span> -->
+                  <span class="units"
+                    ><!--<a href="#" id="celcius-link">-->°C</a
+                    ><!-- |
+                    <a href="#" id="fahrenheit-link">°F</a>--></span
+                  > &ThickSpace; &ThickSpace; &ThickSpace; &ThickSpace;
+                  <span class="today-hi-lo">
+                    <span class="hi-lo">high:&ThickSpace; </span><span class="today-hi"><span id="today-hi">30</span>°</span> &ThickSpace; 
+                    <span class="hi-lo">low:&ThickSpace; </span><span class="today-lo"><span id="today-lo">20</span>°</span>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <ul class="today-details">
+              <li><strong>Feels like:</strong> &ThickSpace; <span class="result"><span id="feels-like"></span>°</span></li>
+              <!--<li><strong>Chance of rain:</strong> &ThickSpace; 0%</li>-->
+              <li>
+                <strong>Humidity:</strong> &ThickSpace;
+                <span class="result"><span id="humidity"></span>%</span>
+              </li>
+              <li>
+                <strong>Wind:</strong> &ThickSpace;
+                <span class="result"><span id="wind"></span> km/hr</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- <div class="row five-day">
+          <div class="col day-one">
+            <h4 id="day-one-title"></h4>
+            <i class="ion-ios-partlysunny-outline day-icon"></i>
+            <p class="five-day-high">
+              <span class="five-day-high" id="five-day-high-one">31°</span>&ThickSpace;<span
+                class="five-day-low"
+                id="five-day-low-one"
+                >27°</span
+              >
+            </p>
+          </div>
+          <div class="col day-two">
+            <h4 id="day-two-title"></h4>
+            <i class="ion-ios-partlysunny-outline day-icon"></i>
+            <p class="five-day-high">
+              <span class="five-day-high" id="five-day-high-two">31°</span>&ThickSpace;<span
+                class="five-day-low"
+                id="five-day-low-two"
+                >26°</span
+              >
+            </p>
+          </div>
+          <div class="col day-three">
+            <h4 id="day-three-title"></h4>
+            <i class="ion-ios-partlysunny-outline day-icon"></i>
+            <p class="five-day-high">
+              <span class="five-day-high" id="five-day-high-three">31°</span>&ThickSpace;<span
+                class="five-day-low"
+                id="five-day-low-three"
+                >26°</span
+              >
+            </p>
+          </div>
+          <div class="col day-four">
+            <h4 id="day-four-title"></h4>
+            <i class="ion-ios-sunny-outline day-icon"></i>
+            <p class="five-day-high">
+              <span class="five-day-high" id="five-day-high-four">32°</span>&ThickSpace;<span
+                class="five-day-low"
+                id="five-day-low-four"
+                >27°</span
+              >
+            </p>
+          </div>
+          <div class="col day-five">
+            <h4 id="day-five-title"></h4>
+            <i class="ion-ios-sunny-outline day-icon"></i>
+            <p class="five-day-high">
+              <span class="five-day-high" id="five-day-high-five">32°</span>&ThickSpace;<span
+                class="five-day-low"
+                id="five-day-low-five"
+                >26°</span
+              >
+            </p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
