@@ -1,4 +1,4 @@
-// Show current day + time
+// Show current day and time
 function showDayTime(date) {
   let now = new Date();
   let dayTime = document.querySelector("#day-time");
@@ -23,9 +23,7 @@ function showDayTime(date) {
   dayTime.innerHTML = `${day} ${hour}:${minutes}`;
 }
 
-showDayTime(new Date());
-
-// Default city on load
+// Search city
 function search(city) {
   let units = "metric";
   let apiKey = "edcd663668b8087c96e88fbd0856ea83";
@@ -34,12 +32,10 @@ function search(city) {
   axios.get(apiUrl).then(showTemperature);
 }
 
-search("Tel Aviv");
-
-// Show real-time weather
+// Show current city, temperature, feels like, high, low, description, humidity, wind, and ICON
 function showTemperature(response) {
   document.querySelector("h1").innerHTML = response.data.name;
-  document.querySelector("#today-temp-span-current").innerHTML = Math.round(
+  document.querySelector("#today-temp-current").innerHTML = Math.round(
     response.data.main.temp
   );
   document.querySelector("#feels-like").innerHTML = Math.round(
@@ -57,18 +53,327 @@ function showTemperature(response) {
     response.data.wind.speed * 3.6
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  if (response.data.weather[0].icon === "01d") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud-moon",
+        "pe-7w-cloud",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-sun");
+  } else if (response.data.weather[0].icon === "01n") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud-moon",
+        "pe-7w-cloud",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-moon");
+  } else if (response.data.weather[0].icon === "02d") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-moon",
+        "pe-7w-cloud",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-cloud-sun");
+  } else if (response.data.weather[0].icon === "02n") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-cloud-moon");
+  } else if (response.data.weather[0].icon === "03d") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud-moon",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-cloud");
+  } else if (response.data.weather[0].icon === "03n") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud-moon",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-cloud");
+  } else if (response.data.weather[0].icon === "04d") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-moon",
+        "pe-7w-cloud",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-cloud-sun");
+  } else if (response.data.weather[0].icon === "04n") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-cloud-moon");
+  } else if (response.data.weather[0].icon === "09d") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud",
+        "pe-7w-cloud-moon",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-rain-alt");
+  } else if (response.data.weather[0].icon === "09n") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud",
+        "pe-7w-cloud-moon",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-rain-alt");
+  } else if (response.data.weather[0].icon === "10d") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud",
+        "pe-7w-cloud-moon",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document
+      .querySelector("#today-icon")
+      .classList.add("pe-7w-drizzle-alt-sun");
+  } else if (response.data.weather[0].icon === "10n") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud",
+        "pe-7w-cloud-moon",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document
+      .querySelector("#today-icon")
+      .classList.add("pe-7w-drizzle-alt-moon");
+  } else if (response.data.weather[0].icon === "11d") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud",
+        "pe-7w-cloud-moon",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-lightning");
+  } else if (response.data.weather[0].icon === "11n") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud",
+        "pe-7w-cloud-moon",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-lightning");
+  } else if (response.data.weather[0].icon === "13d") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud",
+        "pe-7w-cloud-moon",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-snow-alt");
+  } else if (response.data.weather[0].icon === "13n") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud",
+        "pe-7w-cloud-moon",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-fog-sun",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-snow-alt");
+  } else if (response.data.weather[0].icon === "50d") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud",
+        "pe-7w-cloud-moon",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-moon"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-fog-sun");
+  } else if (response.data.weather[0].icon === "50n") {
+    document
+      .querySelector("#today-icon")
+      .classList.remove(
+        "pe-7w-sun",
+        "pe-7w-moon",
+        "pe-7w-cloud-sun",
+        "pe-7w-cloud",
+        "pe-7w-cloud-moon",
+        "pe-7w-rain-alt",
+        "pe-7w-drizzle-alt-sun",
+        "pe-7w-drizzle-alt-moon",
+        "pe-7w-lightning",
+        "pe-7w-snow-alt",
+        "pe-7w-fog-sun"
+      );
+    document.querySelector("#today-icon").classList.add("pe-7w-fog-moon");
+  }
 }
 
+// Get city
 function getCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
   search(city);
 }
 
-let cityForm = document.querySelector("#city-form");
-cityForm.addEventListener("submit", getCity);
-
-// Show Current Location weather
+// Show current location
 function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -77,12 +382,20 @@ function showPosition(position) {
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 }
 
+// Get current location
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+let cityForm = document.querySelector("#city-form");
+cityForm.addEventListener("submit", getCity);
+
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentPosition);
+
+showDayTime(new Date());
+
+search("Tel Aviv");
 
 // Show 5 day1
 /* function showFiveDayOne(date) {

@@ -4,11 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="vendors/css/ionicons.min.css"
-    />
+    <link rel="stylesheet" type="text/css" href="vendors/pe-icon-7-weather/css/pe-icon-7-weather.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap"
       rel="stylesheet"
@@ -25,7 +21,7 @@
   <body>
     <div class="container">
       <div class="weather-box">
-        <form class="weather-search" id="city-form">
+        <form class="city-form" id="city-form">
           <div class="row">
             <div class="col-8">
               <input
@@ -60,25 +56,22 @@
           <li id="description"></li>
         </ul>
         <div class="row">
-          <div class="col-7">
+          <div class="col-8">
             <div class="clearfix">
               <div class="float-left">
-                <!-- <i class="ion-ios-sunny-outline today-icon"></i> -->
+                <i class="today-icon" id="today-icon"></i>
               </div>
               <div class="float-left">
-                <p class="today-temp">
-                  <span class="today-temp-span-current"
-                    ><span id="today-temp-span-current"></span
+                <p class="current-temp">
+                  <span class="today-temp-current"
+                    ><span id="today-temp-current"></span
                     ></span
                   >
-                  <!-- <span class="today-temp-span-low"
-                    ><span id="today-temp-span-low"></span>
-                  </span> -->
                   <span class="units"
                     ><!--<a href="#" id="celcius-link">-->°C</a
                     ><!-- |
                     <a href="#" id="fahrenheit-link">°F</a>--></span
-                  > &ThickSpace; &ThickSpace; &ThickSpace; &ThickSpace;
+                  > &ThickSpace; &ThickSpace; &ThickSpace;
                   <span class="today-hi-lo">
                     <span class="hi-lo">high:&ThickSpace; </span><span class="today-hi"><span id="today-hi">30</span>°</span> &ThickSpace; 
                     <span class="hi-lo">low:&ThickSpace; </span><span class="today-lo"><span id="today-lo">20</span>°</span>
@@ -87,7 +80,7 @@
               </div>
             </div>
           </div>
-          <div class="col-5">
+          <div class="col-4">
             <ul class="today-details">
               <li><strong>Feels like:</strong> &ThickSpace; <span class="result"><span id="feels-like"></span>°</span></li>
               <!--<li><strong>Chance of rain:</strong> &ThickSpace; 0%</li>-->
@@ -102,10 +95,10 @@
             </ul>
           </div>
         </div>
-        <!-- <div class="row five-day">
+        <!-- <div class="row forecast">
           <div class="col day-one">
             <h4 id="day-one-title"></h4>
-            <i class="ion-ios-partlysunny-outline day-icon"></i>
+            <i class="pe-7w-sun day-icon"></i>
             <p class="five-day-high">
               <span class="five-day-high" id="five-day-high-one">31°</span>&ThickSpace;<span
                 class="five-day-low"
@@ -116,7 +109,7 @@
           </div>
           <div class="col day-two">
             <h4 id="day-two-title"></h4>
-            <i class="ion-ios-partlysunny-outline day-icon"></i>
+            <i class="pe-7w-sun day-icon"></i>
             <p class="five-day-high">
               <span class="five-day-high" id="five-day-high-two">31°</span>&ThickSpace;<span
                 class="five-day-low"
@@ -127,7 +120,7 @@
           </div>
           <div class="col day-three">
             <h4 id="day-three-title"></h4>
-            <i class="ion-ios-partlysunny-outline day-icon"></i>
+            <i class="pe-7w-sun day-icon"></i>
             <p class="five-day-high">
               <span class="five-day-high" id="five-day-high-three">31°</span>&ThickSpace;<span
                 class="five-day-low"
@@ -138,7 +131,7 @@
           </div>
           <div class="col day-four">
             <h4 id="day-four-title"></h4>
-            <i class="ion-ios-sunny-outline day-icon"></i>
+            <i class="pe-7w-sun day-icon"></i>
             <p class="five-day-high">
               <span class="five-day-high" id="five-day-high-four">32°</span>&ThickSpace;<span
                 class="five-day-low"
@@ -149,7 +142,7 @@
           </div>
           <div class="col day-five">
             <h4 id="day-five-title"></h4>
-            <i class="ion-ios-sunny-outline day-icon"></i>
+            <i class="pe-7w-sun day-icon"></i>
             <p class="five-day-high">
               <span class="five-day-high" id="five-day-high-five">32°</span>&ThickSpace;<span
                 class="five-day-low"

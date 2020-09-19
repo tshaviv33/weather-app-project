@@ -20,7 +20,7 @@ body {
   box-shadow: 0 30px 80px 10px rgba(0, 0, 0, 0.2);
 }
 
-.weather-search {
+.city-form {
   margin: 20px 20px 0 20px;
 }
 
@@ -57,8 +57,8 @@ ul {
 
 .today-icon {
   color: #ffc108;
-  font-size: 120px;
-  margin: 20px 20px 20px 40px;
+  font-size: 100px;
+  margin: 20px 20px 20px 50px;
   padding: 0;
   line-height: 1;
 }
@@ -69,26 +69,19 @@ p {
   font-weight: 400;
 }
 
-.today-temp {
+.current-temp {
   line-height: 1;
-  margin: 0 20px 20px 50px;
+  margin: 0 20px 20px 0;
   display: inline-block;
-  vertical-align: text-top;
+  vertical-align: top;
 }
 
-.today-temp-span-current {
+.today-temp-current {
   color: #23272b;
   font-size: 64px;
-  line-height: 1.8;
+  line-height: 2;
   font-weight: 300;
 }
-
-/* .today-temp-span-low {
-  font-size: 64px;
-  line-height: 1.8;
-  opacity: 50%;
-  font-weight: 300;
-} */
 
 .units {
   color: #555555;
@@ -114,6 +107,7 @@ a:visited {
 }
 
 .today-hi {
+  font-weight: 300;
   color: #32383d;
 }
 
@@ -126,7 +120,7 @@ a:visited {
   font-size: 18px;
   font-weight: 300;
   line-height: 1.5;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .result {
@@ -134,12 +128,13 @@ a:visited {
 }
 
 h4 {
+  font-size: 20px;
   color: #23272b;
   font-weight: 300;
-  margin: 0;
+  margin-bottom: 10px;
 }
 
-.five-day {
+.forecast {
   margin: 10px 20px 20px 20px;
   text-align: center;
 }
@@ -147,6 +142,7 @@ h4 {
 .day-icon {
   color: #ffc108;
   font-size: 70px;
+  margin-bottom: 10px;
 }
 
 .day-one {
