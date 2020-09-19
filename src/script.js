@@ -35,17 +35,16 @@ function search(city) {
 // Show current city, temperature, feels like, high, low, description, humidity, wind, and ICON
 function showTemperature(response) {
   document.querySelector("h1").innerHTML = response.data.name;
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#today-temp-current").innerHTML = Math.round(
-    response.data.main.temp
+    celsiusTemperature
   );
+  celsiusHi = response.data.main.temp_max;
+  document.querySelector("#today-hi").innerHTML = Math.round(celsiusHi);
+  celsiusLo = response.data.main.temp_min;
+  document.querySelector("#today-lo").innerHTML = Math.round(celsiusLo);
   document.querySelector("#feels-like").innerHTML = Math.round(
     response.data.main.feels_like
-  );
-  document.querySelector("#today-hi").innerHTML = Math.round(
-    response.data.main.temp_max
-  );
-  document.querySelector("#today-lo").innerHTML = Math.round(
-    response.data.main.temp_min
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
@@ -387,6 +386,43 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+function changeToFahrenheit(event) {
+  event.preventDefault();
+  celciusButton.classList.remove("active");
+  fahrenheitButton.classList.add("active");
+  let temperature = document.querySelector("#today-temp-current");
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  temperature.innerHTML = fahrenheitTemperature;
+  let temperatureHi = document.querySelector("#today-hi");
+  let fahrenheitTemperatureHi = Math.round((celsiusHi * 9) / 5 + 32);
+  temperatureHi.innerHTML = fahrenheitTemperatureHi;
+  let temperatureLo = document.querySelector("#today-lo");
+  let fahrenheitTemperatureLo = Math.round((celsiusLo * 9) / 5 + 32);
+  temperatureLo.innerHTML = fahrenheitTemperatureLo;
+}
+
+function changeToCelcius(event) {
+  event.preventDefault();
+  fahrenheitButton.classList.remove("active");
+  celciusButton.classList.add("active");
+  let temperature = document.querySelector("#today-temp-current");
+  temperature.innerHTML = Math.round(celsiusTemperature);
+  let temperatureHi = document.querySelector("#today-hi");
+  temperatureHi.innerHTML = Math.round(celsiusHi);
+  let temperatureLo = document.querySelector("#today-lo");
+  temperatureLo.innerHTML = Math.round(celsiusLo);
+}
+
+let celsiusTemperature = null;
+let celsiusHi = null;
+let celsiusLo = null;
+
+let fahrenheitButton = document.querySelector("#fahrenheit-link");
+fahrenheitButton.addEventListener("click", changeToFahrenheit);
+
+let celciusButton = document.querySelector("#celcius-link");
+celciusButton.addEventListener("click", changeToCelcius);
+
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", getCity);
 
@@ -520,8 +556,7 @@ showFiveDayFive(new Date()); */
   lowFahrenheitFive.innerHTML = "79°";
 }
 
-let fahrenheitButton = document.querySelector("#fahrenheit-link");
-//fahrenheitButton.addEventListener("click", changeToFahrenheit);
+
 
 // Change temp to celcius
 function changeToCelcius() {
@@ -551,5 +586,4 @@ function changeToCelcius() {
   lowCelciusFive.innerHTML = "26°";
 }
 
-let celciusButton = document.querySelector("#celcius-link");
-//celciusButton.addEventListener("click", changeToCelcius); */
+ */

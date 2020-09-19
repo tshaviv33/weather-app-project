@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <link rel="stylesheet" type="text/css" href="vendors/pe-icon-7-weather/css/pe-icon-7-weather.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendors/pe-icon-7-weather/css/pe-icon-7-weather.css"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap"
       rel="stylesheet"
@@ -41,7 +45,11 @@
               />
             </div>
             <div class="col-2">
-              <button type="button" class="form-control btn btn-dark" id="current-button">
+              <button
+                type="button"
+                class="form-control btn btn-dark"
+                id="current-button"
+              >
                 Current
               </button>
             </div>
@@ -50,10 +58,10 @@
         <h1></h1>
         <ul class="today-info">
           <li>
-            <span class="today-span">Today&ThickSpace;</span>
+            <span class="updated-span">Last updated:&ThickSpace;</span>
             <span class="day-time" id="day-time"></span>
           </li>
-          <li id="description"></li>
+          <li class="description" id="description"></li>
         </ul>
         <div class="row">
           <div class="col-8">
@@ -65,16 +73,21 @@
                 <p class="current-temp">
                   <span class="today-temp-current"
                     ><span id="today-temp-current"></span
-                    ></span
-                  >
+                  ></span>
                   <span class="units"
-                    ><!--<a href="#" id="celcius-link">-->°C</a
-                    ><!-- |
-                    <a href="#" id="fahrenheit-link">°F</a>--></span
-                  > &ThickSpace; &ThickSpace; &ThickSpace;
+                    ><a href="#" class="active" id="celcius-link">°C</a> |
+                    <a href="#" id="fahrenheit-link">°F</a></span
+                  >
+                  &ThickSpace; &ThickSpace;
                   <span class="today-hi-lo">
-                    <span class="hi-lo">high:&ThickSpace; </span><span class="today-hi"><span id="today-hi">30</span>°</span> &ThickSpace; 
-                    <span class="hi-lo">low:&ThickSpace; </span><span class="today-lo"><span id="today-lo">20</span>°</span>
+                    <span class="hi-lo">high:&ThickSpace; </span
+                    ><span class="today-hi"
+                      ><span id="today-hi">30</span>°</span
+                    >
+                    &ThickSpace; <span class="hi-lo">low:&ThickSpace; </span
+                    ><span class="today-lo"
+                      ><span id="today-lo">20</span>°</span
+                    >
                   </span>
                 </p>
               </div>
@@ -82,7 +95,10 @@
           </div>
           <div class="col-4">
             <ul class="today-details">
-              <li><strong>Feels like:</strong> &ThickSpace; <span class="result"><span id="feels-like"></span>°</span></li>
+              <li>
+                <strong>Feels like:</strong> &ThickSpace;
+                <span class="result"><span id="feels-like"></span>°</span>
+              </li>
               <!--<li><strong>Chance of rain:</strong> &ThickSpace; 0%</li>-->
               <li>
                 <strong>Humidity:</strong> &ThickSpace;
@@ -153,7 +169,14 @@
           </div>
         </div> -->
       </div>
-      <p class="coded-by"><a href="https://github.com/tshaviv33/weather-app-project" target="_blank">Open-source code</a> by Talia Haviv</p>
+      <p class="coded-by">
+        <a
+          href="https://github.com/tshaviv33/weather-app-project"
+          target="_blank"
+          >Open-source code</a
+        >
+        by Talia Haviv
+      </p>
     </div>
     <script src="src/script.js"></script>
   </body>
