@@ -72,21 +72,21 @@
               <div class="float-left">
                 <p class="current-temp">
                   <span class="today-temp-current"
-                    ><span id="today-temp-current"></span
+                    ><span class="weather-temp" id="today-temp-current"></span
                   ></span>
                   <span class="units"
-                    ><a href="#" class="active" id="celcius-link">°C</a> |
+                    ><a href="#" class="active" id="celsius-link">°C</a> |
                     <a href="#" id="fahrenheit-link">°F</a></span
                   >
                   &ThickSpace; &ThickSpace;
                   <span class="today-hi-lo">
                     <span class="hi-lo">high:&ThickSpace; </span
                     ><span class="today-hi"
-                      ><span id="today-hi">30</span>°</span
+                      ><span class="weather-temp" id="today-hi"></span>°</span
                     >
                     &ThickSpace; <span class="hi-lo">low:&ThickSpace; </span
                     ><span class="today-lo"
-                      ><span id="today-lo">20</span>°</span
+                      ><span class="weather-temp" id="today-lo"></span>°</span
                     >
                   </span>
                 </p>
@@ -97,7 +97,9 @@
             <ul class="today-details">
               <li>
                 <strong>Feels like:</strong> &ThickSpace;
-                <span class="result"><span id="feels-like"></span>°</span>
+                <span class="result"
+                  ><span class="weather-temp" id="feels-like"></span>°</span
+                >
               </li>
               <li>
                 <strong>Humidity:</strong> &ThickSpace;
@@ -110,67 +112,107 @@
             </ul>
           </div>
         </div>
-        <div class="row forecast" id="forecast">
-          <!-- <div class="col hour-one">
-            <h4 id="hour-one-title"></h4>
-            <i class="hour-icon"></i>
-            <p class="five-hour-high">
-              <span class="five-hour-high" id="five-hour-high-one"></span
-              >°&ThickSpace;<span
-                class="five-hour-low"
-                id="five-hour-low-one"
-              ></span
-              >°
-            </p>
+        <div class="row forecast">
+          <div class="col day-box">
+            <h4 id="day-one-title"></h4>
+            <div id="forecast">
+              <img
+                src=""
+                alt="description"
+                class="day-icon"
+                id="day-icon-one"
+              />
+              <p class="five-day-high">
+                <span class="five-day-high"
+                  ><span class="weather-temp" id="five-day-high-one"></span
+                  >°</span
+                >&ThickSpace;<span class="five-day-low"
+                  ><span class="weather-temp" id="five-day-low-one"></span
+                  >°</span
+                >
+              </p>
+            </div>
           </div>
-          <div class="col hour-two">
-            <h4 id="hour-two-title"></h4>
-            <i class="hour-icon"></i>
-            <p class="five-hour-high">
-              <span class="five-hour-high" id="five-hour-high-two"></span
-              >°&ThickSpace;<span
-                class="five-hour-low"
-                id="five-hour-low-two"
-              ></span
-              >°
-            </p>
+          <div class="col day-box">
+            <h4 id="day-two-title"></h4>
+            <div id="forecast">
+              <img
+                src=""
+                alt="description"
+                class="day-icon"
+                id="day-icon-two"
+              />
+              <p class="five-day-high">
+                <span class="five-day-high"
+                  ><span class="weather-temp" id="five-day-high-two"></span
+                  >°</span
+                >&ThickSpace;<span class="five-day-low"
+                  ><span class="weather-temp" id="five-day-low-two"></span
+                  >°</span
+                >
+              </p>
+            </div>
           </div>
-          <div class="col hour-three">
-            <h4 id="hour-three-title"></h4>
-            <i class="hour-icon"></i>
-            <p class="five-hour-high">
-              <span class="five-hour-high" id="five-hour-high-three"></span
-              >°&ThickSpace;<span
-                class="five-hour-low"
-                id="five-hour-low-three"
-              ></span
-              >°
-            </p>
+          <div class="col day-box">
+            <h4 id="day-three-title"></h4>
+            <div id="forecast">
+              <img
+                src=""
+                alt="description"
+                class="day-icon"
+                id="day-icon-three"
+              />
+              <p class="five-day-high">
+                <span class="five-day-high"
+                  ><span class="weather-temp" id="five-day-high-three"></span
+                  >°</span
+                >&ThickSpace;<span class="five-day-low"
+                  ><span class="weather-temp" id="five-day-low-three"></span
+                  >°</span
+                >
+              </p>
+            </div>
           </div>
-          <div class="col hour-four">
-            <h4 id="hour-four-title"></h4>
-            <i class="hour-icon"></i>
-            <p class="five-hour-high">
-              <span class="five-hour-high" id="five-hour-high-four"></span
-              >°&ThickSpace;<span
-                class="five-hour-low"
-                id="five-hour-low-four"
-              ></span
-              >°
-            </p>
+          <div class="col day-box">
+            <h4 id="day-four-title"></h4>
+            <div id="forecast">
+              <img
+                src=""
+                alt="description"
+                class="day-icon"
+                id="day-icon-four"
+              />
+              <p class="five-day-high">
+                <span class="five-day-high"
+                  ><span class="weather-temp" id="five-day-high-four"></span
+                  >°</span
+                >&ThickSpace;<span class="five-day-low"
+                  ><span class="weather-temp" id="five-day-low-four"></span
+                  >°</span
+                >
+              </p>
+            </div>
           </div>
-          <div class="col hour-five">
-            <h4 id="hour-five-title"></h4>
-            <i class="hour-icon"></i>
-            <p class="five-hour-high">
-              <span class="five-hour-high" id="five-hour-high-five"></span
-              >°&ThickSpace;<span
-                class="five-hour-low"
-                id="five-hour-low-five"
-              ></span
-              >°
-            </p>
-          </div> -->
+          <div class="col day-box">
+            <h4 id="day-five-title"></h4>
+            <div id="forecast">
+              <img
+                src=""
+                alt="description"
+                class="day-icon"
+                id="day-icon-five"
+              />
+              <p class="five-day-high">
+                <span class="five-day-high"
+                  ><span class="weather-temp" id="five-day-high-five"></span
+                  >°</span
+                >&ThickSpace;<span class="five-day-low"
+                  ><span class="weather-temp" id="five-day-low-five"></span
+                  >°</span
+                >
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <p class="coded-by">

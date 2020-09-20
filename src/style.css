@@ -109,13 +109,6 @@ a {
   cursor: default;
 }
 
-/* a:link,
-a:hover,
-a:active,
-a:visited {
-  color: #005086;
-} */
-
 .today-hi-lo {
   font-size: 30px;
 }
@@ -159,26 +152,27 @@ h4 {
   text-align: center;
 }
 
-.hour-icon {
+.day-icon {
   color: #ffc108;
   height: 50px;
   max-height: 50px;
   margin-bottom: 10px;
+  display: none;
 }
 
-.hour-box {
+.day-box {
   border-right: 1px solid #696969;
 }
 
-.hour-box:last-child {
+.day-box:last-child {
   border-right: none;
 }
 
-.five-hour-high {
+.five-day-high {
   color: #444444;
 }
 
-.five-hour-low {
+.five-day-low {
   color: #555555;
   font-weight: 300;
 }
