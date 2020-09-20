@@ -51,7 +51,6 @@ function search(city) {
 
 // Show current city, temperature, feels like, high, low, description, humidity, wind, and ICON
 function showTemperature(response) {
-  console.log(response.data);
   document.querySelector("h1").innerHTML = response.data.name;
   celsiusTemperature = response.data.main.temp;
   document.querySelector("#today-temp-current").innerHTML = Math.round(
@@ -73,6 +72,7 @@ function showTemperature(response) {
   let weatherIcon = response.data.weather[0].icon;
   let todayIcon = document.querySelector("#today-icon");
   todayIcon.setAttribute("src", `icons-ios/${weatherIcon}.png`);
+  todayIcon.style.display = "inline";
 }
 
 // Show forecast
@@ -83,19 +83,18 @@ function showForecast(response) {
   forecastElement.innerHTML = null;
   let forecast = null;
 
-  img.setAttribute(
-    "src",
-    `path/to/images/${response.data.weather[0].icon}.png`
-  );
-
   for (let index = 0; index < 5; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
-    <div class="col">
+    <div class="col hour-box">
       <h4>
         ${formatHours(forecast.dt * 1000)}
       </h4>
-      <
+      <img
+        src="icons-ios/${forecast.weather[0].icon}.png"
+        alt="${forecast.weather[0].description}"
+        class="hour-icon"
+      />
       <p>
         <span class="five-hour-high">${Math.round(
           forecast.main.temp_max
