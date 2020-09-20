@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link
-      rel="stylesheet"
-      type="text/css"
-      href="vendors/pe-icon-7-weather/css/pe-icon-7-weather.css"
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap"
       rel="stylesheet"
     />
@@ -67,7 +62,12 @@
           <div class="col-8">
             <div class="clearfix">
               <div class="float-left">
-                <i class="today-icon" id="today-icon"></i>
+                <img
+                  src="icons-ios/50n.png"
+                  alt="description"
+                  class="today-icon"
+                  id="today-icon"
+                />
               </div>
               <div class="float-left">
                 <p class="current-temp">
@@ -99,7 +99,6 @@
                 <strong>Feels like:</strong> &ThickSpace;
                 <span class="result"><span id="feels-like"></span>°</span>
               </li>
-              <!--<li><strong>Chance of rain:</strong> &ThickSpace; 0%</li>-->
               <li>
                 <strong>Humidity:</strong> &ThickSpace;
                 <span class="result"><span id="humidity"></span>%</span>
@@ -111,63 +110,68 @@
             </ul>
           </div>
         </div>
-        <!-- <div class="row forecast">
-          <div class="col day-one">
-            <h4 id="day-one-title"></h4>
-            <i class="pe-7w-sun day-icon"></i>
-            <p class="five-day-high">
-              <span class="five-day-high" id="five-day-high-one">31°</span>&ThickSpace;<span
-                class="five-day-low"
-                id="five-day-low-one"
-                >27°</span
-              >
+        <div class="row forecast" id="forecast">
+          <!-- <div class="col hour-one">
+            <h4 id="hour-one-title"></h4>
+            <i class="hour-icon"></i>
+            <p class="five-hour-high">
+              <span class="five-hour-high" id="five-hour-high-one"></span
+              >°&ThickSpace;<span
+                class="five-hour-low"
+                id="five-hour-low-one"
+              ></span
+              >°
             </p>
           </div>
-          <div class="col day-two">
-            <h4 id="day-two-title"></h4>
-            <i class="pe-7w-sun day-icon"></i>
-            <p class="five-day-high">
-              <span class="five-day-high" id="five-day-high-two">31°</span>&ThickSpace;<span
-                class="five-day-low"
-                id="five-day-low-two"
-                >26°</span
-              >
+          <div class="col hour-two">
+            <h4 id="hour-two-title"></h4>
+            <i class="hour-icon"></i>
+            <p class="five-hour-high">
+              <span class="five-hour-high" id="five-hour-high-two"></span
+              >°&ThickSpace;<span
+                class="five-hour-low"
+                id="five-hour-low-two"
+              ></span
+              >°
             </p>
           </div>
-          <div class="col day-three">
-            <h4 id="day-three-title"></h4>
-            <i class="pe-7w-sun day-icon"></i>
-            <p class="five-day-high">
-              <span class="five-day-high" id="five-day-high-three">31°</span>&ThickSpace;<span
-                class="five-day-low"
-                id="five-day-low-three"
-                >26°</span
-              >
+          <div class="col hour-three">
+            <h4 id="hour-three-title"></h4>
+            <i class="hour-icon"></i>
+            <p class="five-hour-high">
+              <span class="five-hour-high" id="five-hour-high-three"></span
+              >°&ThickSpace;<span
+                class="five-hour-low"
+                id="five-hour-low-three"
+              ></span
+              >°
             </p>
           </div>
-          <div class="col day-four">
-            <h4 id="day-four-title"></h4>
-            <i class="pe-7w-sun day-icon"></i>
-            <p class="five-day-high">
-              <span class="five-day-high" id="five-day-high-four">32°</span>&ThickSpace;<span
-                class="five-day-low"
-                id="five-day-low-four"
-                >27°</span
-              >
+          <div class="col hour-four">
+            <h4 id="hour-four-title"></h4>
+            <i class="hour-icon"></i>
+            <p class="five-hour-high">
+              <span class="five-hour-high" id="five-hour-high-four"></span
+              >°&ThickSpace;<span
+                class="five-hour-low"
+                id="five-hour-low-four"
+              ></span
+              >°
             </p>
           </div>
-          <div class="col day-five">
-            <h4 id="day-five-title"></h4>
-            <i class="pe-7w-sun day-icon"></i>
-            <p class="five-day-high">
-              <span class="five-day-high" id="five-day-high-five">32°</span>&ThickSpace;<span
-                class="five-day-low"
-                id="five-day-low-five"
-                >26°</span
-              >
+          <div class="col hour-five">
+            <h4 id="hour-five-title"></h4>
+            <i class="hour-icon"></i>
+            <p class="five-hour-high">
+              <span class="five-hour-high" id="five-hour-high-five"></span
+              >°&ThickSpace;<span
+                class="five-hour-low"
+                id="five-hour-low-five"
+              ></span
+              >°
             </p>
-          </div>
-        </div> -->
+          </div> -->
+        </div>
       </div>
       <p class="coded-by">
         <a
